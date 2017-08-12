@@ -2,6 +2,8 @@ package com.danielclark.jets;
 
 import java.util.Scanner;
 
+import javax.swing.text.StyledEditorKit.ForegroundAction;
+
 public class JetsApp {
 
 	Hangar h = new Hangar();
@@ -70,4 +72,13 @@ public class JetsApp {
 		
 		return fastJet;
 	}
+	
+//	Pilots[] pilots = Barracks.getPilots() {
+//		for (int i = 0; i < pilots.length; i++) {
+//			
+//			
+//			System.out.println(pilots[i].getName());
+//		}
+//	}
+	
 }
