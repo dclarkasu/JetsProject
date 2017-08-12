@@ -1,5 +1,7 @@
 package com.danielclark.jets;
 
+import java.util.Scanner;
+
 public class JetsApp {
 
 	Hangar h = new Hangar();
@@ -8,8 +10,6 @@ public class JetsApp {
 		JetsApp jetApp = new JetsApp();
 		jetApp.start();
 		
-//		public static menuOptions();
-		
 		
 		
 	}
@@ -17,6 +17,8 @@ public class JetsApp {
 	public void start() {
 		//where method calls occur
 		initialize();
+		menuChoice();
+		
 	}
 	
 	
@@ -26,6 +28,7 @@ public class JetsApp {
 	}
 	
 	public void initialize() {
+
 		Jets[] jets = new Jets[5];
 		jets[0] = new Jets("Ol' Betsy", "30 mm", 1860, 1300, 30_000_000, 8000);
 		jets[1] = new Jets("Wilmer the Warpig", "25 mm", 1750, 1300, 28_750_000, 6000);
@@ -46,6 +49,12 @@ public class JetsApp {
 		
 		
 		b.setPilots(pilots);
+	}
+	
+	public void menuChoice() {
+		Scanner kb = new Scanner(System.in);
+		
+		
 	}
 	
 	public Jets fastJet() {
