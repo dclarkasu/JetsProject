@@ -58,31 +58,30 @@ public class JetsApp {
 		Scanner kb = new Scanner(System.in);
 		int choice;
 		do {
-		System.out.println("Welcome to the Jet Management System");
+		System.out.println("\nWelcome to the Jet Management System");
 		System.out.println("Please select an option from the menu below: ");
 		System.out.println("(1) List Fleet");
 		System.out.println("(2) View fastest jet");
 		System.out.println("(3) View jet with longest range");
 		System.out.println("(4) Add a jet to fleet");
-		System.out.println("(5) Quit");
+		System.out.println("(5) Quit\n");
 		choice = kb.nextInt();
 		
 		switch (choice) {
 		case 1: displayJets();
 			break;
-		case 2:
-		Jets fastJet = fastJet();
+		case 2: Jets fastJet = fastJet();
 		System.out.println(fastJet);
-		break;
-		case 3:
-		break;
-		case 4:
-			addJet(kb);
+			break;
+		case 3: //longRangeJet();
+			break;
+		case 4: addJet(kb);
 			break;
 		default:
 			break;
 		}
 		}while(choice!=5);
+		System.out.println("\nThank you for using the Jet Management System.");
 		
 	}
 	
@@ -94,12 +93,12 @@ public class JetsApp {
 	}
 	
 	public Jets fastJet() {
-		Jets[] jets = h.getJets();
-		Jets fastJet = jets[0];
+		Jets[] jetsTemp = h.getJets();
+		Jets fastJet = jetsTemp[0];
 		
-		for (int i = 0; i < jets.length; i++) {
-			if(fastJet.getSpeed() < jets[i].getSpeed()) {
-				fastJet = jets[i];
+		for (int i = 0; i < jetsTemp.length; i++) {
+			if(fastJet.getSpeed() < jetsTemp[i].getSpeed()) {
+				fastJet = jetsTemp[i];
 			}
 			
 		}
@@ -110,8 +109,26 @@ public class JetsApp {
 	public void addJet(Scanner kb) {
 		//ask user for input
 		Jets newJet = new Jets();
-		newJet.setName("whatsup");
-		h.addJet(newJet);
+		
+		System.out.println("Please enter the jet's name: ");
+		String newName = kb.nextString();
+		newJet.setName(newName); 
+		System.out.println("Please enter the jet's weaponry: ");
+		String newWeapon = kb.nextString();
+		newJet.setWeaponry(newWeapon); 
+		System.out.println("Please enter the jet's range: ");
+		double newRange = kb.nextDouble();
+		newJet.setRange(newRange); 
+		System.out.println("Please enter the jet's speed: ");
+		double newSpeed = kb.nextDouble();
+		newJet.setSpeed(newSpeed); 
+		System.out.println("Please enter the jet's price: ");
+		double newPrice = kb.nextDouble();
+		newJet.setPrice(newPrice); 
+		System.out.println("Please enter the jet's fuel capacity: ");
+		int newCapacity = kb.nextInt();
+		newJet.setCapacity(newCapacity); 
+		
 	}
 	
 //	Pilots[] pilots = Barracks.getPilots() {
