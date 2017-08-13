@@ -12,7 +12,7 @@ public class Jets {
 		this.name = name;
 		this.weaponry = weaponry;
 		this.range = range;
-		this.speed = speed;
+		this.speed = speed= (speed * .001303);
 		this.price = price;
 		this.capacity = capacity;
 	}

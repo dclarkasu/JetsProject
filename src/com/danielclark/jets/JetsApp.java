@@ -73,7 +73,8 @@ public class JetsApp {
 		case 2: Jets fastJet = fastJet();
 		System.out.println(fastJet);
 			break;
-		case 3: //longRangeJet();
+		case 3: Jets longJet = longRangeJet();
+		System.out.println(longJet);
 			break;
 		case 4: addJet(kb);
 			break;
@@ -106,15 +107,27 @@ public class JetsApp {
 		return fastJet;
 	}
 	
+	public Jets longRangeJet() {
+		Jets[] tempLongJet = h.getJets();
+		Jets longJet = tempLongJet[0];
+		
+		for (int i = 0; i < tempLongJet.length; i++) {
+			if(longJet.getRange() < tempLongJet[i].getRange()) {
+				longJet = tempLongJet[i];
+			}
+		}
+		return longJet;
+	}
+	
 	public void addJet(Scanner kb) {
 		//ask user for input
 		Jets newJet = new Jets();
 		
 		System.out.println("Please enter the jet's name: ");
-		String newName = kb.nextString();
+		String newName = kb.next();
 		newJet.setName(newName); 
 		System.out.println("Please enter the jet's weaponry: ");
-		String newWeapon = kb.nextString();
+		String newWeapon = kb.next();
 		newJet.setWeaponry(newWeapon); 
 		System.out.println("Please enter the jet's range: ");
 		double newRange = kb.nextDouble();
@@ -129,6 +142,8 @@ public class JetsApp {
 		int newCapacity = kb.nextInt();
 		newJet.setCapacity(newCapacity); 
 		
+		h.addJet(newJet);
+		
 	}
 	
 //	Pilots[] pilots = Barracks.getPilots() {
@@ -140,3 +155,33 @@ public class JetsApp {
 //	}
 	
 }
+
+
+
+
+//public Jets[] fastJet() {
+//	Jets[] jetsTemp = h.getJets();
+//	Jets fastJet = jetsTemp[0];
+//	Jets[] fastestJetsList = new Jets[1];
+//	fastestJetsList[0] = fastJet;
+//	for (int i = 1; i < jetsTemp.length; i++) {
+//		if(fastJet.getSpeed() < jetsTemp[i].getSpeed()) {
+//			fastJet = jetsTemp[i];
+//			fastestJetsList = new Jets[1];
+//			fastestJetsList[0] = jetsTemp[i];
+//			
+//		}
+//		else if(fastJet.getSpeed()==jetsTemp[i].getSpeed()) {
+//			System.out.println("equals");
+//			Jets[] fastTemp = new Jets[fastestJetsList.length+1];
+//			for(int j = 0; j<fastestJetsList.length;j++) {
+//				fastTemp[j] = fastestJetsList[j];
+//			}
+//			fastTemp[fastTemp.length-1] = jetsTemp[i];
+//			fastestJetsList = fastTemp;
+//		}
+//		
+//	}
+//	
+//	return fastestJetsList;
+//}
