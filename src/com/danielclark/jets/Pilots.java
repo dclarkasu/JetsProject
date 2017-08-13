@@ -41,12 +41,12 @@ public class Pilots {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Pilots [name=");
+		builder.append("Pilots [name= ");
 		builder.append(name);
-		builder.append(", age=");
+		builder.append(", age= ");
 		builder.append(age);
-		builder.append(", experience=");
-		builder.append(experience);
+		builder.append(", experience= ");
+		builder.append(experience + " years");
 		builder.append("]");
 		return builder.toString();
 	}

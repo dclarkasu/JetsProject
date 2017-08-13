@@ -64,7 +64,8 @@ public class JetsApp {
 		System.out.println("(2) View fastest jet");
 		System.out.println("(3) View jet with longest range");
 		System.out.println("(4) Add a jet to fleet");
-		System.out.println("(5) Quit\n");
+		System.out.println("(5) List Pilots");
+		System.out.println("(6) Quit\n");
 		choice = kb.nextInt();
 		
 		switch (choice) {
@@ -78,10 +79,11 @@ public class JetsApp {
 			break;
 		case 4: addJet(kb);
 			break;
+		case 5: displayPilots();
 		default:
 			break;
 		}
-		}while(choice!=5);
+		}while(choice!=6);
 		System.out.println("\nThank you for using the Jet Management System.");
 		
 	}
@@ -132,7 +134,7 @@ public class JetsApp {
 		System.out.println("Please enter the jet's range: ");
 		double newRange = kb.nextDouble();
 		newJet.setRange(newRange); 
-		System.out.println("Please enter the jet's speed: ");
+		System.out.println("Please enter the jet's speed in mph: ");
 		double newSpeed = kb.nextDouble();
 		newJet.setSpeed(newSpeed); 
 		System.out.println("Please enter the jet's price: ");
@@ -146,13 +148,12 @@ public class JetsApp {
 		
 	}
 	
-//	Pilots[] pilots = Barracks.getPilots() {
-//		for (int i = 0; i < pilots.length; i++) {
-//			
-//			
-//			System.out.println(pilots[i].getName());
-//		}
-//	}
+	public void displayPilots() {
+		Pilots[] pilots = b.getPilots();
+		for (int i = 0; i < pilots.length; i++) {
+			System.out.println(pilots[i]);
+		}
+	}
 	
 }
 

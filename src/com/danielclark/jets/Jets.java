@@ -54,7 +54,7 @@ public class Jets {
 	}
 
 	public void setSpeed(double speed) {
-		this.speed = speed;
+		this.speed= (speed * .001303);
 	}
 
 	public int getCapacity() {
@@ -74,8 +74,8 @@ public class Jets {
 		builder.append(weaponry);
 		builder.append(", range= ");
 		builder.append(range);
-		builder.append(", speed= ");
-		builder.append(speed + "mph");
+		builder.append(", speed= " + "Mach ");
+		builder.append(speed);
 		builder.append( ", price= $");
 		builder.append(price);
 		builder.append(", capacity= ");
