@@ -75,16 +75,13 @@ public class Jets {
 		builder.append(", range=");
 		builder.append(range);
 		builder.append(", speed=");
-		builder.append(speed);
-		builder.append(", price=");
+		builder.append(speed + "mph");
+		builder.append( ", price= $");
 		builder.append(price);
 		builder.append(", capacity=");
-		builder.append(capacity);
+		builder.append(capacity + "gal");
 		builder.append("]");
 		return builder.toString();
 	}
-	
-	
-	
 
 }
