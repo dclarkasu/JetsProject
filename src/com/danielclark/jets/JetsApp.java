@@ -18,16 +18,16 @@ public class JetsApp {
 	
 	public void start() {
 		//where method calls occur
-		Jets[] jets = initialize();
-		menuChoice();
-		displayJets(jets);
+		initialize();
+//		menuChoice();
+//		displayJets(jets);
 //		Jets fastJet = fastJet();
 //		System.out.println(fastJet);
 	}
 	
 	
 	
-	public Jets[] initialize() {
+	public void initialize() {
 
 		Jets[] jets = new Jets[5];
 		jets[0] = new Jets("Ol' Betsy", "30 mm", 1860, 1300, 30_000_000, 8000);
@@ -50,12 +50,14 @@ public class JetsApp {
 		
 		b.setPilots(pilots);
 		
-		return jets;
+//		return jets;
+		menuChoice(jets);
 	}
 	
-	public void menuChoice() {
+	public void menuChoice(Jets[] jets) {
 		Scanner kb = new Scanner(System.in);
-		
+		int choice;
+		do {
 		System.out.println("Welcome to the Jet Management System");
 		System.out.println("Please select an option from the menu below: ");
 		System.out.println("(1) List Fleet");
@@ -63,13 +65,31 @@ public class JetsApp {
 		System.out.println("(3) View jet with longest range");
 		System.out.println("(4) Add a jet to fleet");
 		System.out.println("(5) Quit");
+		choice = kb.nextInt();
 		
+		switch (choice) {
+		case 1: displayJets();
+			break;
+		case 2:
+		Jets fastJet = fastJet();
+		System.out.println(fastJet);
+		break;
+		case 3:
+		break;
+		case 4:
+			addJet(kb);
+			break;
+		default:
+			break;
+		}
+		}while(choice!=5);
 		
 	}
 	
-	public void displayJets(Jets[] jets) {
-		for (int i = 0; i < jets.length; i++) {
-			System.out.println(jets[i]);
+	public void displayJets() {
+		Jets[] j = h.getJets();
+		for (int i = 0; i < j.length; i++) {
+			System.out.println(j[i]);
 		}
 	}
 	
@@ -85,6 +105,13 @@ public class JetsApp {
 		}
 		
 		return fastJet;
+	}
+	
+	public void addJet(Scanner kb) {
+		//ask user for input
+		Jets newJet = new Jets();
+		newJet.setName("whatsup");
+		h.addJet(newJet);
 	}
 	
 //	Pilots[] pilots = Barracks.getPilots() {

@@ -68,17 +68,17 @@ public class Jets {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Jets [name=");
+		builder.append("Jets [name= ");
 		builder.append(name);
-		builder.append(", weaponry=");
+		builder.append(", weaponry= ");
 		builder.append(weaponry);
-		builder.append(", range=");
+		builder.append(", range= ");
 		builder.append(range);
-		builder.append(", speed=");
+		builder.append(", speed= ");
 		builder.append(speed + "mph");
 		builder.append( ", price= $");
 		builder.append(price);
-		builder.append(", capacity=");
+		builder.append(", capacity= ");
 		builder.append(capacity + "gal");
 		builder.append("]");
 		return builder.toString();
