@@ -82,9 +82,9 @@ public class Jets {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Jets [pilot= ");
-		builder.append(pilot);
-		builder.append(", name= ");
+		builder.append("Jets");
+//		builder.append(pilot);
+		builder.append("name= ");
 		builder.append(name);
 		builder.append(", weaponry= ");
 		builder.append(weaponry);

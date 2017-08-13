@@ -68,9 +68,11 @@ public class JetsApp {
 			break;
 		case 2: Jets fastJet = fastJet();
 		System.out.println(fastJet);
+		System.out.println(fastJet.getPilot());
 			break;
 		case 3: Jets longJet = longRangeJet();
 		System.out.println(longJet);
+		System.out.println(longJet.getPilot());
 			break;
 		case 4: addJet(kb);
 			break;
@@ -87,6 +89,7 @@ public class JetsApp {
 		Jets[] j = h.getJets();
 		for (int i = 0; i < j.length; i++) {
 			System.out.println(j[i]);
+			System.out.println("\t" + j[i].getPilot());
 		}
 	}
 	
