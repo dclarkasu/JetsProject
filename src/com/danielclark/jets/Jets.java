@@ -1,20 +1,32 @@
 package com.danielclark.jets;
 
+import java.text.DecimalFormat;
+
 public class Jets {
+	private Pilots pilot;
 	private String name, weaponry;
 	private double range, speed, price;
 	private int capacity;
 
+	public Pilots getPilot() {
+		return pilot;
+	}
+
+	public void setPilot(Pilots pilot) {
+		this.pilot = pilot;
+	}
+
 	public Jets() {
 	}
 
-	public Jets(String name, String weaponry, double range, double speed, double price, int capacity) {
+	public Jets(String name, Pilots pilot, String weaponry, double range, double speed, double price, int capacity) {
 		this.name = name;
 		this.weaponry = weaponry;
 		this.range = range;
-		this.speed = speed= (speed * .001303);
+		setSpeed(speed);
 		this.price = price;
 		this.capacity = capacity;
+		this.pilot = pilot;
 	}
 
 	public double getPrice() {
@@ -54,7 +66,9 @@ public class Jets {
 	}
 
 	public void setSpeed(double speed) {
-		this.speed= (speed * .001303);
+		DecimalFormat d = new DecimalFormat("0.00");
+		this.speed= Double.parseDouble((d.format((speed * .001303))));
+		
 	}
 
 	public int getCapacity() {
@@ -68,20 +82,24 @@ public class Jets {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Jets [name= ");
+		builder.append("Jets [pilot= ");
+		builder.append(pilot);
+		builder.append(", name= ");
 		builder.append(name);
 		builder.append(", weaponry= ");
 		builder.append(weaponry);
 		builder.append(", range= ");
 		builder.append(range);
-		builder.append(", speed= " + "Mach ");
-		builder.append(speed);
-		builder.append( ", price= $");
+		builder.append(", speed= ");
+		builder.append("Mach " + speed);
+		builder.append(", price= $ ");
 		builder.append(price);
 		builder.append(", capacity= ");
-		builder.append(capacity + "gal");
+		builder.append(capacity + " gal");
 		builder.append("]");
 		return builder.toString();
 	}
+
+	
 
 }

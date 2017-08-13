@@ -2,42 +2,29 @@ package com.danielclark.jets;
 
 import java.util.Scanner;
 
-import javax.swing.text.StyledEditorKit.ForegroundAction;
-
 public class JetsApp {
 
 	Hangar h = new Hangar();
 	Barracks b = new Barracks();
+	
 	public static void main(String[] args) {
+		Scanner kb = new Scanner(System.in);
 		JetsApp jetApp = new JetsApp();
-		jetApp.start();
+		jetApp.start(kb);
 		
 		
-		
+		kb.close();
 	}
 	
-	public void start() {
+	public void start(Scanner kb) {
 		//where method calls occur
-		initialize();
-//		menuChoice();
-//		displayJets(jets);
-//		Jets fastJet = fastJet();
-//		System.out.println(fastJet);
+		initialize(kb);
 	}
 	
 	
 	
-	public void initialize() {
+	public void initialize(Scanner kb) {
 
-		Jets[] jets = new Jets[5];
-		jets[0] = new Jets("Ol' Betsy", "30 mm", 1860, 1300, 30_000_000, 8000);
-		jets[1] = new Jets("Wilmer the Warpig", "25 mm", 1750, 1300, 28_750_000, 6000);
-		jets[2] = new Jets("Dirty Deuce", "105 mm", 3000, 1100, 50_000_000, 12000);
-		jets[3] = new Jets("Sweet Loretta", "50 mm", 1600, 1000, 38_600_000, 1000);
-		jets[4] = new Jets("Highlander 6", "40 mm", 2000, 900, 32_000_000, 7500);
-		
-		
-		h.setJets(jets);
 		
 		Pilots[] pilots = new Pilots[5];
 		
@@ -49,13 +36,21 @@ public class JetsApp {
 		
 		
 		b.setPilots(pilots);
+		Jets[] jets = new Jets[5];
+		jets[0] = new Jets("Ol' Betsy", pilots[0], "30 mm", 1860, 1300, 30_000_000, 8000);
+		jets[1] = new Jets("Wilmer the Warpig", pilots[1], "25 mm", 1750, 1300, 28_750_000, 6000);
+		jets[2] = new Jets("Dirty Deuce", pilots[2], "105 mm", 3000, 1100, 50_000_000, 12000);
+		jets[3] = new Jets("Sweet Loretta", pilots[3], "50 mm", 1600, 1000, 38_600_000, 1000);
+		jets[4] = new Jets("Highlander 6", pilots[4], "40 mm", 2000, 900, 32_000_000, 7500);
+		
+		
+		h.setJets(jets);
 		
 //		return jets;
-		menuChoice(jets);
+		menuChoice(kb, jets);
 	}
 	
-	public void menuChoice(Jets[] jets) {
-		Scanner kb = new Scanner(System.in);
+	public void menuChoice(Scanner kb, Jets[] jets) {
 		int choice;
 		do {
 		System.out.println("\nWelcome to the Jet Management System");
